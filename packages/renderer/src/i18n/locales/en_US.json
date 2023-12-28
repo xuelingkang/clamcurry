@@ -1,0 +1,212 @@
+{
+    "header": {
+        "tooltip": {
+            "collapseSidebar": "Collapse Sidebar",
+            "expandSidebar": "Expand Sidebar",
+            "exportNote": "Export Note"
+        },
+        "message": {
+            "exportNoteSuccess": "Export Finish"
+        }
+    },
+    "panel": {
+        "title": {
+            "preference": "PREFERENCE",
+            "theme": "THEME",
+            "search": "SEARCH"
+        }
+    },
+    "preferencePanel": {
+        "label": {
+            "language": "Language",
+            "editorMode": "Default Mode",
+            "sidebarWidth": "Sidebar Width",
+            "outlineWidth": "Outline Width",
+            "maxOpen": "Max Open Notes",
+            "fontSize": "Font Size",
+            "tabSize": "Tab Size",
+            "vimMode": "Vim Mode",
+            "themeId": "Theme",
+            "searchNoteLimit": "Search Notes Limit"
+        },
+        "values": {
+            "language": {
+                "en_US": "English",
+                "zh_CN": "简体中文"
+            },
+            "editorMode": {
+                "editor": "Only Editor",
+                "editorPreview": "Editor And Previewer",
+                "preview": "Only Previewer"
+            },
+            "vimMode": {
+                "yes": "Yes",
+                "no": "No"
+            }
+        }
+    },
+    "themePanel": {
+        "enabled": " (Enabled)",
+        "label": {
+            "select": "Select Theme",
+            "name": "Theme Name",
+            "base": "Theme Base",
+            "foreground1": "Foreground1",
+            "foreground2": "Foreground2",
+            "foreground3": "Foreground3",
+            "foreground4": "Foreground4",
+            "background1": "Background1",
+            "background2": "Background2",
+            "background3": "Background3",
+            "background4": "Background4",
+            "divider1": "Divider1",
+            "divider2": "Divider2",
+            "scrollbar": "Scrollbar",
+            "selection": "Selection",
+            "activeLine": "Active Line",
+            "lineNumber1": "Line Number1",
+            "lineNumber2": "Line Number2",
+            "highlighter1": "Highlighter1",
+            "highlighter2": "Highlighter2",
+            "highlighter3": "Highlighter3",
+            "highlighter4": "Highlighter4",
+            "highlighter5": "Highlighter5",
+            "highlighter6": "Highlighter6",
+            "primary": "Primary",
+            "secondary": "Secondary",
+            "success": "Success",
+            "info": "Info",
+            "warning": "Warning",
+            "error": "Error"
+        },
+        "values": {
+            "base": {
+                "light": "Light",
+                "dark": "Dark"
+            }
+        },
+        "tooltip": {
+            "copy": "Copy",
+            "delete": "Delete"
+        },
+        "copyThemeDialog": {
+            "title": "Copy Theme",
+            "nameLabel": "Theme Name",
+            "ok": "Ok",
+            "cancel": "Cancel"
+        },
+        "deleteThemeDialog": {
+            "title": "Delete Theme",
+            "content": "Confirm delete theme \"{{themeName}}\"?",
+            "ok": "Confirm",
+            "cancel": "Cancel"
+        }
+    },
+    "searchPanel": {
+        "label": {
+            "keyword": "Keyword",
+            "result": "Search Result",
+            "createTime": "Create: {{time}}",
+            "updateTime": "Update: {{time}}",
+            "visitTime": "Visit: {{time}}"
+        },
+        "placeholder": {
+            "keyword": "Split Keywords By Space"
+        },
+        "message": {
+            "requireKeyword": "Require Keyword"
+        }
+    },
+    "sidebar": {
+        "notebookMenu": {
+            "newNotebook": "New Notebook",
+            "dummyNotebookName": "Please New Notebook",
+            "tooltip": {
+                "rename": "Rename",
+                "delete": "Delete"
+            },
+            "newNotebookDialog": {
+                "title": "New Notebook",
+                "nameLabel": "Notebook Name",
+                "nameRequireMessage": "Require Name",
+                "ok": "Ok",
+                "cancel": "Cancel"
+            },
+            "renameNotebookDialog": {
+                "title": "Rename Notebook",
+                "nameLabel": "New Name",
+                "nameRequireMessage": "Require Name",
+                "ok": "Ok",
+                "cancel": "Cancel"
+            },
+            "deleteNotebookDialog": {
+                "title": "Delete Notebook",
+                "content": "Confirm delete notebook \"{{notebookName}}\"?",
+                "description": "All notes while be deleted at the same time.",
+                "ok": "Confirm",
+                "cancel": "Cancel"
+            }
+        },
+        "noteTree": {
+            "label": {
+                "contents": "Contents"
+            },
+            "tooltip": {
+                "new": "New Note",
+                "focus": "Focus",
+                "expand": "Expand",
+                "collapse": "Collapse"
+            },
+            "noteMenu": {
+                "new": "New",
+                "rename": "Rename",
+                "delete": "Delete"
+            },
+            "newNoteDialog": {
+                "title": "New Note",
+                "titleLabel": "Note Title",
+                "titleRequireMessage": "Require Title",
+                "ok": "Ok",
+                "cancel": "Cancel"
+            },
+            "renameNoteDialog": {
+                "title": "Rename Note",
+                "titleLabel": "New Title",
+                "titleRequireMessage": "Require Title",
+                "ok": "Ok",
+                "cancel": "Cancel"
+            },
+            "deleteNoteDialog": {
+                "title": "Delete Note",
+                "content": "Confirm delete note \"{{noteTitle}}\"?",
+                "description": "All sub notes while be deleted at the same time.",
+                "ok": "Confirm",
+                "cancel": "Cancel"
+            }
+        }
+    },
+    "markdown": {
+        "highlighter": {
+            "copy": "Copy",
+            "copySuccess": "Copied"
+        }
+    },
+    "outline": {
+        "label": {
+            "root": "Outline",
+            "collapse": "Collapse Outline",
+            "expand": "Expand Outline"
+        }
+    },
+    "components": {
+        "imageViewer": {
+            "tooltip": {
+                "originalSize": "Original Size",
+                "zoomOut": "Zoom Out",
+                "zoomIn": "Zoom In",
+                "fitScreen": "Fit Screen",
+                "close": "Close"
+            }
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "name": "clamcurry",
+    "version": "1.0.0-beta.0",
+    "description": "A cross-platform markdown notebook",
+    "repository": "https://github.com/xuelingkang/clamcurry.git",
+    "author": "xuelingkang",
+    "license": "MIT",
+    "private": true,
+    "workspaces": {
+        "packages": [
+            "packages/*"
+        ]
+    },
+    "scripts": {
+        "start": "yarn workspace @clamcurry/common build && yarn workspace @clamcurry/main build && concurrently \"yarn workspace @clamcurry/renderer start\" \"yarn workspace @clamcurry/main start\"",
+        "build": "yarn workspace @clamcurry/common build && yarn workspace @clamcurry/main build && yarn workspace @clamcurry/renderer build",
+        "pack:mac": "yarn run build && yarn workspace @clamcurry/main pack:mac",
+        "pack:win": "yarn run build && yarn workspace @clamcurry/main pack:win",
+        "pack:linux": "yarn run build && yarn workspace @clamcurry/main pack:linux"
+    },
+    "devDependencies": {
+        "concurrently": "^8.2.2"
+    }
+}
