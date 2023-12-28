@@ -1,0 +1,51 @@
+productName: Clamcurry
+appId: com.xzixi.app.clamcurry
+files:
+  - package.json
+  - from: ../renderer/build
+    to: build/renderer
+  - from: build
+    to: build/main
+extraResources:
+  - assets
+extraMetadata:
+  name: clamcurry
+  description: 'A cross-platform markdown notebook'
+  repository: https://github.com/xuelingkang/clamcurry.git
+  author: xuelingkang
+  main: build/main/index.js
+directories:
+  output: out
+mac:
+  artifactName: ${productName}-${version}-darwin-${arch}.${ext}
+  icon: logo/mac/logo.icns
+  category: public.app-category.utilities
+  target:
+    - target: dmg
+      arch:
+        - x64
+        - arm64
+win:
+  artifactName: ${productName}-${version}-windows-amd64.${ext}
+  icon: logo/win/logo.ico
+  target:
+    - target: nsis
+      arch:
+        - x64
+linux:
+  artifactName: ${productName}-${version}-linux-amd64.${ext}
+  icon: logo/linux
+  target:
+    - target: AppImage
+      arch:
+        - x64
+nsis:
+  oneClick: false
+  perMachine: true
+  allowElevation: false
+  allowToChangeInstallationDirectory: true
+  deleteAppDataOnUninstall: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+appImage:
+  category: Utility

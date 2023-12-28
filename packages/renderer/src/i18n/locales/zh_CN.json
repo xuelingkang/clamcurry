@@ -1,0 +1,212 @@
+{
+    "header": {
+        "tooltip": {
+            "collapseSidebar": "收起侧边栏",
+            "expandSidebar": "展开侧边栏",
+            "exportNote": "导出笔记"
+        },
+        "message": {
+            "exportNoteSuccess": "导出完成"
+        }
+    },
+    "panel": {
+        "title": {
+            "preference": "首选项",
+            "theme": "主题",
+            "search": "搜索"
+        }
+    },
+    "preferencePanel": {
+        "label": {
+            "language": "语言",
+            "editorMode": "默认模式",
+            "sidebarWidth": "侧边栏宽度",
+            "outlineWidth": "大纲宽度",
+            "maxOpen": "最大打开笔记数量",
+            "fontSize": "字体大小",
+            "tabSize": "缩进大小",
+            "vimMode": "Vim模式",
+            "themeId": "主题",
+            "searchNoteLimit": "搜索笔记数量"
+        },
+        "values": {
+            "language": {
+                "en_US": "English",
+                "zh_CN": "简体中文"
+            },
+            "editorMode": {
+                "editor": "仅编辑",
+                "editorPreview": "编辑和预览",
+                "preview": "仅预览"
+            },
+            "vimMode": {
+                "yes": "是",
+                "no": "否"
+            }
+        }
+    },
+    "themePanel": {
+        "enabled": "（已启用）",
+        "label": {
+            "select": "选择主题",
+            "name": "主题名称",
+            "base": "主题风格",
+            "foreground1": "Foreground1",
+            "foreground2": "Foreground2",
+            "foreground3": "Foreground3",
+            "foreground4": "Foreground4",
+            "background1": "Background1",
+            "background2": "Background2",
+            "background3": "Background3",
+            "background4": "Background4",
+            "divider1": "Divider1",
+            "divider2": "Divider2",
+            "scrollbar": "Scrollbar",
+            "selection": "Selection",
+            "activeLine": "Active Line",
+            "lineNumber1": "Line Number1",
+            "lineNumber2": "Line Number2",
+            "highlighter1": "Highlighter1",
+            "highlighter2": "Highlighter2",
+            "highlighter3": "Highlighter3",
+            "highlighter4": "Highlighter4",
+            "highlighter5": "Highlighter5",
+            "highlighter6": "Highlighter6",
+            "primary": "Primary",
+            "secondary": "Secondary",
+            "success": "Success",
+            "info": "Info",
+            "warning": "Warning",
+            "error": "Error"
+        },
+        "values": {
+            "base": {
+                "light": "明亮",
+                "dark": "黑暗"
+            }
+        },
+        "tooltip": {
+            "copy": "复制",
+            "delete": "删除"
+        },
+        "copyThemeDialog": {
+            "title": "复制主题",
+            "nameLabel": "主题名称",
+            "ok": "确定",
+            "cancel": "取消"
+        },
+        "deleteThemeDialog": {
+            "title": "删除主题",
+            "content": "确认删除主题 \"{{themeName}}\" ？",
+            "ok": "确定",
+            "cancel": "取消"
+        }
+    },
+    "searchPanel": {
+        "label": {
+            "keyword": "关键字",
+            "result": "搜索结果",
+            "createTime": "创建：{{time}}",
+            "updateTime": "修改：{{time}}",
+            "visitTime": "访问：{{time}}"
+        },
+        "placeholder": {
+            "keyword": "多个关键字使用空格分隔"
+        },
+        "message": {
+            "requireKeyword": "请输入关键字"
+        }
+    },
+    "sidebar": {
+        "notebookMenu": {
+            "newNotebook": "新建笔记本",
+            "dummyNotebookName": "请创建笔记本",
+            "tooltip": {
+                "rename": "重命名",
+                "delete": "删除"
+            },
+            "newNotebookDialog": {
+                "title": "新建笔记本",
+                "nameLabel": "名称",
+                "nameRequireMessage": "请输入名称",
+                "ok": "确定",
+                "cancel": "取消"
+            },
+            "renameNotebookDialog": {
+                "title": "修改名称",
+                "nameLabel": "新名称",
+                "nameRequireMessage": "请输入名称",
+                "ok": "确定",
+                "cancel": "取消"
+            },
+            "deleteNotebookDialog": {
+                "title": "删除笔记本",
+                "content": "确认删除笔记本 \"{{notebookName}}\" ？",
+                "description": "同时会删除该笔记本的所有笔记。",
+                "ok": "确定",
+                "cancel": "取消"
+            }
+        },
+        "noteTree": {
+            "label": {
+                "contents": "目录"
+            },
+            "tooltip": {
+                "new": "新建笔记",
+                "focus": "聚焦",
+                "expand": "展开",
+                "collapse": "折叠"
+            },
+            "noteMenu": {
+                "new": "新建笔记",
+                "rename": "修改标题",
+                "delete": "删除笔记"
+            },
+            "newNoteDialog": {
+                "title": "新建笔记",
+                "titleLabel": "标题",
+                "titleRequireMessage": "请输入标题",
+                "ok": "确定",
+                "cancel": "取消"
+            },
+            "renameNoteDialog": {
+                "title": "修改标题",
+                "titleLabel": "新标题",
+                "titleRequireMessage": "请输入标题",
+                "ok": "确定",
+                "cancel": "取消"
+            },
+            "deleteNoteDialog": {
+                "title": "删除笔记",
+                "content": "确认删除笔记 \"{{noteTitle}}\" ？",
+                "description": "会同时删除该笔记包含的所有笔记。",
+                "ok": "确定",
+                "cancel": "取消"
+            }
+        }
+    },
+    "markdown": {
+        "highlighter": {
+            "copy": "复制",
+            "copySuccess": "已复制"
+        }
+    },
+    "outline": {
+        "label": {
+            "root": "大纲",
+            "collapse": "收起大纲",
+            "expand": "展开大纲"
+        }
+    },
+    "components": {
+        "imageViewer": {
+            "tooltip": {
+                "originalSize": "原始尺寸",
+                "zoomOut": "缩小",
+                "zoomIn": "放大",
+                "fitScreen": "适应屏幕",
+                "close": "关闭"
+            }
+        }
+    }
+}

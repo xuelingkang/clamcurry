@@ -1,0 +1,58 @@
+{
+    "name": "@clamcurry/main",
+    "version": "1.0.0-beta.0",
+    "description": "Main Process Module",
+    "main": "build/index.js",
+    "license": "MIT",
+    "private": true,
+    "workspaces": {
+        "nohoist": [
+            "@clamcurry/common",
+            "@clamcurry/common/**",
+            "electron",
+            "electron/**",
+            "electron-builder",
+            "electron-builder/**",
+            "electron-log",
+            "electron-log/**",
+            "reflect-metadata",
+            "reflect-metadata/**",
+            "sqlite3",
+            "sqlite3/**",
+            "typeorm",
+            "typeorm/**"
+        ]
+    },
+    "scripts": {
+        "start": "wait-on tcp:127.0.0.1:3004 && cross-env ELECTRON_START_URL=http://127.0.0.1:3004 electron .",
+        "build": "tsc",
+        "pack:mac": "electron-builder --mac --config build.yaml",
+        "pack:win": "electron-builder --win --config build.yaml",
+        "pack:linux": "electron-builder --linux --config build.yaml"
+    },
+    "dependencies": {
+        "@clamcurry/common": "1.0.0-beta.0",
+        "electron-log": "^5.0.0",
+        "reflect-metadata": "^0.1.13",
+        "sqlite3": "^5.1.6",
+        "typeorm": "^0.3.17"
+    },
+    "devDependencies": {
+        "@eslint/create-config": "^0.4.6",
+        "@types/node": "^18.17.1",
+        "@typescript-eslint/eslint-plugin": "^6.11.0",
+        "@typescript-eslint/parser": "^6.11.0",
+        "asar": "^3.2.0",
+        "cross-env": "^7.0.3",
+        "electron": "^27.1.0",
+        "electron-builder": "^24.9.1",
+        "electron-devtools-installer": "^3.2.0",
+        "eslint": "^8.54.0",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-prettier": "^5.0.1",
+        "eslint-plugin-react": "^7.33.2",
+        "prettier": "^3.1.0",
+        "typescript": "^5.2.2",
+        "wait-on": "^7.0.1"
+    }
+}
