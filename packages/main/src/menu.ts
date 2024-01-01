@@ -5,49 +5,49 @@ const handlePreferenceMenuEvent = (menuItem: MenuItem, browserWindow: BrowserWin
     if (!menuItem.enabled) {
         return;
     }
-    browserWindow.webContents.send('mainEventService.handlePreferenceMenuEvent');
+    browserWindow?.webContents?.send('mainEventService.handlePreferenceMenuEvent');
 };
 
 const handleThemeMenuEvent = (menuItem: MenuItem, browserWindow: BrowserWindow) => {
     if (!menuItem.enabled) {
         return;
     }
-    browserWindow.webContents.send('mainEventService.handleThemeMenuEvent');
+    browserWindow?.webContents?.send('mainEventService.handleThemeMenuEvent');
 };
 
 const handleNewNoteEvent = (menuItem: MenuItem, browserWindow: BrowserWindow) => {
     if (!menuItem.enabled) {
         return;
     }
-    browserWindow.webContents.send('mainEventService.handleNewNoteMenuEvent');
+    browserWindow?.webContents?.send('mainEventService.handleNewNoteMenuEvent');
 };
 
 const handleSearchNoteEvent = (menuItem: MenuItem, browserWindow: BrowserWindow) => {
     if (!menuItem.enabled) {
         return;
     }
-    browserWindow.webContents.send('mainEventService.handleSearchNoteMenuEvent');
+    browserWindow?.webContents?.send('mainEventService.handleSearchNoteMenuEvent');
 };
 
 const handleCloseNoteEvent = (menuItem: MenuItem, browserWindow: BrowserWindow) => {
     if (!menuItem.enabled) {
         return;
     }
-    browserWindow.webContents.send('mainEventService.handleCloseNoteMenuEvent');
+    browserWindow?.webContents?.send('mainEventService.handleCloseNoteMenuEvent');
 };
 
 const handleToggleSidebarEvent = (menuItem: MenuItem, browserWindow: BrowserWindow) => {
     if (!menuItem.enabled) {
         return;
     }
-    browserWindow.webContents.send('mainEventService.handleToggleSidebarMenuEvent');
+    browserWindow?.webContents?.send('mainEventService.handleToggleSidebarMenuEvent');
 };
 
 const handleToggleOutlineEvent = (menuItem: MenuItem, browserWindow: BrowserWindow) => {
     if (!menuItem.enabled) {
         return;
     }
-    browserWindow.webContents.send('mainEventService.handleToggleOutlineMenuEvent');
+    browserWindow?.webContents?.send('mainEventService.handleToggleOutlineMenuEvent');
 };
 
 const handleFeedbackEvent = (menuItem: MenuItem) => {
