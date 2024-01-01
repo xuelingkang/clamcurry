@@ -1,6 +1,6 @@
 {
     "name": "@clamcurry/main",
-    "version": "1.0.0-beta.0",
+    "version": "1.0.0-beta.1",
     "description": "Main Process Module",
     "main": "build/index.js",
     "license": "MIT",
@@ -31,7 +31,7 @@
         "pack:linux": "electron-builder --linux --config build.yaml"
     },
     "dependencies": {
-        "@clamcurry/common": "1.0.0-beta.0",
+        "@clamcurry/common": "1.0.0-beta.1",
         "electron-log": "^5.0.0",
         "reflect-metadata": "^0.1.13",
         "sqlite3": "^5.1.6",

@@ -1,6 +1,6 @@
 {
     "name": "@clamcurry/renderer",
-    "version": "1.0.0-beta.0",
+    "version": "1.0.0-beta.1",
     "description": "Renderer Process Module",
     "homepage": ".",
     "license": "MIT",
@@ -11,7 +11,7 @@
     },
     "devDependencies": {
         "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-        "@clamcurry/common": "1.0.0-beta.0",
+        "@clamcurry/common": "1.0.0-beta.1",
         "@emotion/react": "^11.11.1",
         "@emotion/styled": "^11.11.0",
         "@eslint/create-config": "^0.4.6",
