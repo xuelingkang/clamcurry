@@ -34,6 +34,79 @@ A cross-platform markdown notebook. Built based on electron. Not verified on Win
 | Command+1       | Ctrl+1        | Toggle sidebar        |
 | Command+2       | Ctrl+2        | Toggle outline        |
 
+## Manual
+
+### Manage Notebook
+
+![manage_notebook](packages/main/assets/readme/manage_notebook.gif "manage_notebook")
+
+### Manage Note
+
+Shortcut: File -> New Note
+
+![manage_note](packages/main/assets/readme/manage_note.gif "manage_note")
+
+### Drag and drop
+
+![drag_drop](packages/main/assets/readme/drag_drop.gif "drag_drop")
+
+### Edit Note
+
+![edit](packages/main/assets/readme/edit.gif "edit")
+
+### Outline Navigation
+
+![outline_navigation](packages/main/assets/readme/outline_navigation.gif "outline_navigation")
+
+### Global Search
+
+Shortcut: Command/Ctrl+Shift+f
+
+![global_search](packages/main/assets/readme/global_search.gif "global_search")
+
+### Preference Setting
+
+Shortcut: Command+,(MacOS)/Ctrl+p(Windows and Linux)
+
+![preference](packages/main/assets/readme/preference.gif "preference")
+
+### Theme Setting
+
+Shortcut: Command/Ctrl+t
+
+Support some simple color setting
+
+![theme](packages/main/assets/readme/theme.gif "theme")
+
+#### Description
+
+| Field Name      | Description                                                                   |
+|-----------------|-------------------------------------------------------------------------------|
+| Theme Name      | Theme Name                                                                    |
+| Theme Base      | Extend the Material-ui dark or light theme                                    |
+| Foreground1     | Usually used for app and editor text color                                    |
+| Foreground2     | Usually used for preview mainly text color                                    |
+| Foreground3     | Used for preview secondary text color                                         |
+| Foreground4     | Used for preview link text color                                              |
+| Background1     | Used for app background color                                                 |
+| Background2     | Usually used for editor and preview background color                          |
+| Background3     | Usually used for preview                                                      |
+| Background4     | Usually used for preview                                                      |
+| Divider1        | Usually used for obvious borders                                              |
+| Divider2        | Usually used for not obvious borders                                          |
+| Scrollbar       | Scrollbar color                                                               |
+| Selection       | Editor and preview text selection color                                       |
+| Active Line     | Editor active line background color                                           |
+| Line Number1    | Editor line number text color                                                 |
+| Line Number2    | Editor active line number text color                                          |
+| Highlighter 1-6 | Used for code highlighter text color                                          |
+| Primary         | For primary interface elements                                                |
+| Secondary       | For secondary interface elements                                              |
+| Success         | For indicating the successful completion of an action that the user triggered |
+| Info            | For highlighting neutral information                                          |
+| Warning         | For potentially dangerous actions or important messages                       |
+| Error           | For elements that the user should be made aware of                            |
+
 ## Project structure
 
 ```text

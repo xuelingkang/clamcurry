@@ -23,11 +23,11 @@ export default class M1697914252167 implements MigrationInterface {
         log.info('finish init table');
 
         log.info('start init file');
-        const manual = this.initManualNote();
+        const readme = this.initReadmeNote();
         log.info('finish init file');
 
         log.info('start init data');
-        await this.initData(queryRunner, manual);
+        await this.initData(queryRunner, readme);
         log.info('finish init data');
     }
 
@@ -439,14 +439,14 @@ export default class M1697914252167 implements MigrationInterface {
         await queryRunner.createTable(noteContentTable, true);
     }
 
-    initManualNote() {
+    initReadmeNote() {
         const appAssetsRoot = mainProcessService.getAppAssetsRoot();
         const assetsRoot = mainProcessService.getAssetsRoot();
-        fs.cpSync(path.join(appAssetsRoot, 'manual'), path.join(assetsRoot, 'manual'), { recursive: true });
-        return fs.readFileSync(path.join(appAssetsRoot, 'manual', 'Manual.md'), 'utf-8');
+        fs.cpSync(path.join(appAssetsRoot, 'readme'), path.join(assetsRoot, 'readme'), { recursive: true });
+        return fs.readFileSync(path.join(appAssetsRoot, 'readme', 'README.md'), 'utf-8');
     }
 
-    async initData(queryRunner: QueryRunner, manual: string) {
+    async initData(queryRunner: QueryRunner, readme: string) {
         const now = TimeUtils.currentTimeMillis();
         const preferenceRepository = queryRunner.manager.getRepository(Preference);
         const themeRepository = queryRunner.manager.getRepository(Theme);
@@ -547,21 +547,21 @@ export default class M1697914252167 implements MigrationInterface {
         defaultNotebook.updateTime = now;
         await notebookRepository.save(defaultNotebook);
 
-        const manualNote = new Note();
-        manualNote.title = 'Manual';
-        manualNote.parentId = 0;
-        manualNote.notebookId = defaultNotebook.id;
-        manualNote.ordinal = 1;
-        manualNote.createTime = now;
-        manualNote.updateTime = now;
-        manualNote.visitTime = now;
-        await noteRepository.save(manualNote);
+        const readmeNote = new Note();
+        readmeNote.title = 'README';
+        readmeNote.parentId = 0;
+        readmeNote.notebookId = defaultNotebook.id;
+        readmeNote.ordinal = 1;
+        readmeNote.createTime = now;
+        readmeNote.updateTime = now;
+        readmeNote.visitTime = now;
+        await noteRepository.save(readmeNote);
 
-        const manualNoteContent = new NoteContent();
-        manualNoteContent.id = manualNote.id;
-        manualNoteContent.notebookId = defaultNotebook.id;
-        manualNoteContent.content = manual;
-        await noteContentRepository.save(manualNoteContent);
+        const readmeNoteContent = new NoteContent();
+        readmeNoteContent.id = readmeNote.id;
+        readmeNoteContent.notebookId = defaultNotebook.id;
+        readmeNoteContent.content = readme;
+        await noteContentRepository.save(readmeNoteContent);
     }
 
     getDefaultLanguage(): LanguageEnum {

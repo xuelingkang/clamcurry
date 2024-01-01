@@ -1,48 +1,84 @@
-# Manual
+# Clamcurry
 
-## Manage Notebook
+A cross-platform markdown notebook. Built based on electron. Not verified on Windows and Linux.
 
-![manage_notebook](http://clamcurry/manual/manage_notebook.gif "manage_notebook")
+## Features
 
-## Manage Note
+- Multiple notebook support.
+- Multiple note tab.
+- Write and preview side by side style.
+- Held your note data on local database.
+- Tree directory structure. Support drag and drop.
+- Global keyword search.
+- Export note.
+- Vim mode support.
+- Preference setting.
+- Theme customize.
+
+### Other operations
+
+- Right click note button, open context menu.
+- Click on outline menu, navigate to title.
+- Preview section scroll flow editor.
+- Sidebar and outline resizable.
+- Help -> Feedback, new issue.
+
+## Keyboard shortcut
+
+| MacOS           | Windows/Linux | Operation             |
+|-----------------|---------------|-----------------------|
+| Command+,       | Ctrl+p        | Open preference panel |
+| Command+t       | Ctrl+t        | Open Theme panel      |
+| Command+n       | Ctrl+n        | New note              |
+| Command+Shift+f | Ctrl+Shift+f  | Open search panel     |
+| Command+1       | Ctrl+1        | Toggle sidebar        |
+| Command+2       | Ctrl+2        | Toggle outline        |
+
+## Manual
+
+### Manage Notebook
+
+![manage_notebook](http://clamcurry/readme/manage_notebook.gif "manage_notebook")
+
+### Manage Note
 
 Shortcut: File -> New Note
 
-![manage_note](http://clamcurry/manual/manage_note.gif "manage_note")
+![manage_note](http://clamcurry/readme/manage_note.gif "manage_note")
 
-## Drag and drop
+### Drag and drop
 
-![drag_drop](http://clamcurry/manual/drag_drop.gif "drag_drop")
+![drag_drop](http://clamcurry/readme/drag_drop.gif "drag_drop")
 
-## Edit Note
+### Edit Note
 
-![edit](http://clamcurry/manual/edit.gif "edit")
+![edit](http://clamcurry/readme/edit.gif "edit")
 
-## Outline Navigation
+### Outline Navigation
 
-![outline_navigation](http://clamcurry/manual/outline_navigation.gif "outline_navigation")
+![outline_navigation](http://clamcurry/readme/outline_navigation.gif "outline_navigation")
 
-## Global Search
+### Global Search
 
 Shortcut: Command/Ctrl+Shift+f
 
-![global_search](http://clamcurry/manual/global_search.gif "global_search")
+![global_search](http://clamcurry/readme/global_search.gif "global_search")
 
-## Preference Setting
+### Preference Setting
 
 Shortcut: Command+,(MacOS)/Ctrl+p(Windows and Linux)
 
-![preference](http://clamcurry/manual/preference.gif "preference")
+![preference](http://clamcurry/readme/preference.gif "preference")
 
-## Theme Setting
+### Theme Setting
 
 Shortcut: Command/Ctrl+t
 
 Support some simple color setting
 
-![theme](http://clamcurry/manual/theme.gif "theme")
+![theme](http://clamcurry/readme/theme.gif "theme")
 
-### Description
+#### Description
 
 | Field Name      | Description                                                                   |
 |-----------------|-------------------------------------------------------------------------------|
@@ -70,3 +106,31 @@ Support some simple color setting
 | Info            | For highlighting neutral information                                          |
 | Warning         | For potentially dangerous actions or important messages                       |
 | Error           | For elements that the user should be made aware of                            |
+
+## Project structure
+
+```text
+packages
+├── common ············· common module
+├── main ··············· main process module
+└── renderer ··········· renderer process module
+```
+
+### Development
+
+```shell
+# install dependencies
+yarn
+
+# start project
+yarn start
+
+# package
+yarn pack:mac
+yarn pack:win
+yarn pack:linux
+```
+
+## License
+
+Clamcurry is under the MIT license. See the [MIT](https://github.com/xuelingkang/clamcurry/blob/master/LICENSE) file for details.
