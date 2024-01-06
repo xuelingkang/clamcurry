@@ -26,9 +26,9 @@
     "scripts": {
         "start": "wait-on tcp:127.0.0.1:3004 && cross-env ELECTRON_START_URL=http://127.0.0.1:3004 electron .",
         "build": "tsc",
-        "pack:mac": "electron-builder --mac --config build.yaml",
-        "pack:win": "electron-builder --win --config build.yaml",
-        "pack:linux": "electron-builder --linux --config build.yaml"
+        "pack:mac": "electron-builder --mac",
+        "pack:win": "electron-builder --win",
+        "pack:linux": "electron-builder --linux"
     },
     "dependencies": {
         "@clamcurry/common": "1.0.0-beta.2",
