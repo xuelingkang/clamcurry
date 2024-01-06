@@ -49,6 +49,5 @@ fs.writeFileSync(
 
 execSync(`git commit -am 'Release v${newVersion}'`);
 execSync(`git tag v${newVersion}`);
-execSync("git push --tags");
 
 console.log("release finish");
