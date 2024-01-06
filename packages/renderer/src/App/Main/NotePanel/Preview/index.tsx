@@ -2,6 +2,7 @@ import React, {
     ForwardedRef,
     forwardRef,
     ForwardRefRenderFunction,
+    useCallback,
     useContext,
     useEffect,
     useImperativeHandle,
@@ -40,6 +41,7 @@ const Preview: ForwardRefRenderFunction<IPreview, IProps> = (props: IProps, ref:
     const [expandOutline, setExpandOutline] = useState(true);
     const [finalOutlineWidth, setFinalOutlineWidth] = useState('');
     const [markdownPaddingRight, setMarkdownPaddingRight] = useState('');
+    const [contentWidth, setContentWidth] = useState('');
     const markdownRef = useRef<IMarkdown | null>(null);
     const markdownBoxRef = useRef<HTMLDivElement | null>(null);
     const outlineRef = useRef<IOutline | null>(null);
@@ -57,11 +59,7 @@ const Preview: ForwardRefRenderFunction<IPreview, IProps> = (props: IProps, ref:
         setFinalOutlineWidth(`${outlineWidth}px`);
     }, [outlineWidth]);
     useEffect(() => {
-        if (canShowOutline && expandOutline) {
-            setMarkdownPaddingRight(`calc(${finalOutlineWidth} + 1rem)`);
-        } else {
-            setMarkdownPaddingRight('0.5rem');
-        }
+        calcContentWidth();
     }, [canShowOutline, expandOutline, finalOutlineWidth]);
     useEffect(() => {
         const newCanShowOutline = editorMode === EditorModeEnum.PREVIEW && !!titles.length;
@@ -75,6 +73,21 @@ const Preview: ForwardRefRenderFunction<IPreview, IProps> = (props: IProps, ref:
         const titles = markdownBoxInstance.querySelectorAll('h1,h2,h3');
         setTitles(titles);
     }, [content]);
+    const calcContentWidth = useCallback(() => {
+        const bodyWidth = document.body.clientWidth;
+        if (bodyWidth <= 1400) {
+            setContentWidth('800px');
+        } else if (bodyWidth <= 2000) {
+            setContentWidth('1200px');
+        } else {
+            setContentWidth('1500px');
+        }
+        if (canShowOutline && expandOutline) {
+            setMarkdownPaddingRight(`calc(${finalOutlineWidth} + 1rem)`);
+        } else {
+            setMarkdownPaddingRight('0.5rem');
+        }
+    }, [canShowOutline, expandOutline, finalOutlineWidth]);
     const syncScrollWithEditor = (lineNumber: number) => {
         const markdownBoxInstance = markdownBoxRef.current;
         if (!markdownBoxInstance) {
@@ -88,7 +101,8 @@ const Preview: ForwardRefRenderFunction<IPreview, IProps> = (props: IProps, ref:
         if (options[0] === -1) {
             return;
         }
-        const element = markdownBoxInstance.children.item(options[0]) as HTMLElement;
+        const markdownContentElement = markdownBoxInstance.children.item(0) as HTMLElement;
+        const element = markdownContentElement.children.item(options[0]) as HTMLElement;
         const scrollTop = element.offsetTop + options[1] * element.offsetHeight;
         markdownBoxInstance.scrollTo({
             top: scrollTop,
@@ -147,11 +161,7 @@ const Preview: ForwardRefRenderFunction<IPreview, IProps> = (props: IProps, ref:
         }
         const width = resizableInstance.size.width;
         setFinalOutlineWidth(`${width}px`);
-        if (canShowOutline && expandOutline) {
-            setMarkdownPaddingRight(`calc(${width}px + 1rem)`);
-        } else {
-            setMarkdownPaddingRight('0.5rem');
-        }
+        calcContentWidth();
     };
     const handleToggleOutline = () => {
         if (!active) {
@@ -163,9 +173,11 @@ const Preview: ForwardRefRenderFunction<IPreview, IProps> = (props: IProps, ref:
         setExpandOutline(!expandOutline);
     };
     return (
-        <Box sx={style(theme, markdownPaddingRight)}>
+        <Box sx={style(theme, contentWidth, markdownPaddingRight)}>
             <Box ref={markdownBoxRef} className={'markdown'} onScroll={handleMarkdownScroll}>
-                <Markdown ref={markdownRef} content={content} />
+                <Box className={'markdown-content'}>
+                    <Markdown ref={markdownRef} content={content} />
+                </Box>
             </Box>
             <If condition={canShowOutline}>
                 <If condition={expandOutline}>

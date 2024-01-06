@@ -1,6 +1,6 @@
 import { ThemeVo } from '@clamcurry/common';
 
-const style = (theme: ThemeVo, markdownPaddingRight: string) => {
+const style = (theme: ThemeVo, contentWidth: string, markdownPaddingRight: string) => {
     const {
         foreground1,
         foreground2,
@@ -44,6 +44,12 @@ const style = (theme: ThemeVo, markdownPaddingRight: string) => {
                 '-apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
             fontSize: '1rem',
             lineHeight: 1.5,
+            '.markdown-content': {
+                maxWidth: '100%',
+                width: contentWidth,
+                marginLeft: 'auto',
+                marginRight: 'auto',
+            },
             'details,figcaption,figure': {
                 display: 'block',
             },

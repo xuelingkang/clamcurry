@@ -64,7 +64,7 @@ const Markdown: ForwardRefRenderFunction<IMarkdown, IProps> = (props: IProps, re
             </ReactMarkdown>
             <Box
                 sx={{
-                    height: 'calc(100% - 3rem)',
+                    height: 'calc(100vh - 5rem)',
                 }}
             />
         </>
