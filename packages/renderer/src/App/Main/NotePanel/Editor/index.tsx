@@ -100,16 +100,20 @@ const Editor: FC<IProps> = (props: IProps) => {
                     if (item.kind === 'file' && item.type.startsWith('image/')) {
                         const image = item.getAsFile() as File;
                         const name = image.name;
-                        const path = image['path'];
                         const prefix = note.id.toString();
                         const nameWithoutExt = name.substring(0, name.lastIndexOf('.'));
-                        const url = window.mainProcessService.upload({ name, path, prefix });
-                        editor.executeEdits('', [
-                            {
-                                range: monaco.Range.lift(selection),
-                                text: `![${name}](${url} "${nameWithoutExt}")\n`,
-                            },
-                        ]);
+                        const fileReader = new FileReader();
+                        fileReader.onload = (event: ProgressEvent<FileReader>) => {
+                            const data = (event.target && event.target.result) as ArrayBuffer;
+                            const url = window.mainProcessService.upload({ name, prefix, data });
+                            editor.executeEdits('', [
+                                {
+                                    range: monaco.Range.lift(selection),
+                                    text: `![${name}](${url} "${nameWithoutExt}")\n`,
+                                },
+                            ]);
+                        };
+                        fileReader.readAsArrayBuffer(image);
                     } else if (item.kind === 'string' && item.type === 'text/plain') {
                         item.getAsString((data) => {
                             editor.executeEdits('', [

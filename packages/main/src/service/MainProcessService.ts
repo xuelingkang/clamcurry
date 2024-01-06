@@ -34,13 +34,19 @@ class MainProcessService implements IMainProcessService {
 
     upload(file: UploadFileDto): string {
         const assetsRoot = this.getAssetsRoot();
+        const dirPath = path.join(assetsRoot, file.prefix);
+        if (!fs.existsSync(dirPath)) {
+            fs.mkdirSync(dirPath);
+        }
         let timestamp = TimeUtils.currentTimeMillis();
         let shortPath = path.join(file.prefix, timestamp.toString() + '_' + file.name);
         while (fs.existsSync(path.join(assetsRoot, shortPath))) {
             timestamp++;
             shortPath = path.join(file.prefix, timestamp.toString() + '_' + file.name);
         }
-        fs.cpSync(file.path, path.join(assetsRoot, shortPath));
+        const filename = path.join(assetsRoot, shortPath);
+        const buffer = Buffer.from(file.data);
+        fs.writeFileSync(filename, buffer);
         return `http://${ProtocolNameEnum.LOCAL_ASSETS}/${shortPath}`;
     }
 
