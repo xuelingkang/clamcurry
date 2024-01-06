@@ -7,6 +7,7 @@ import Code from './Code';
 import A from './A';
 import { Box } from '@mui/material';
 import Img from './Img';
+import Pre from './Pre';
 
 export interface IMarkdown {
     calcScrollOptions: (line: number) => [number, number];
@@ -53,6 +54,7 @@ const Markdown: ForwardRefRenderFunction<IMarkdown, IProps> = (props: IProps, re
             <ReactMarkdown
                 remarkPlugins={[remarkGfm, remarkBreaks, astPlugin]}
                 components={{
+                    pre: (props) => <Pre {...props} />,
                     code: (props) => <Code {...props} />,
                     a: (props) => <A {...props} />,
                     img: (props) => <Img {...props} />,

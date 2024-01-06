@@ -412,6 +412,12 @@ const style = (theme: ThemeVo, markdownPaddingRight: string) => {
             '::-webkit-calendar-picker-indicator': {
                 filter: 'invert(50%)',
             },
+            '.inline-code': {
+                color: `#${foreground1}`,
+                backgroundColor: `#${background3}`,
+                padding: '0.15rem 0.3rem',
+                borderRadius: '0.3rem',
+            },
             '.highlighter-box': {
                 width: '100%',
                 overflow: 'hidden',
