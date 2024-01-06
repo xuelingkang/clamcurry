@@ -1,6 +1,6 @@
 {
     "name": "@clamcurry/common",
-    "version": "1.0.0-beta.1",
+    "version": "1.0.0-beta.2",
     "description": "Common Module",
     "main": "build/index.js",
     "types": "build/index.d.ts",
