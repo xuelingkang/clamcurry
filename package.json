@@ -19,6 +19,7 @@
         "pack:linux": "yarn run build && yarn workspace @clamcurry/main pack:linux"
     },
     "devDependencies": {
+        "@types/node": "^18.17.1",
         "concurrently": "^8.2.2"
     }
 }
