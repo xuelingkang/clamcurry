@@ -41,10 +41,7 @@ const ImageViewer: ForwardRefRenderFunction<IImageViewer, IProps> = (
     const show = () => {
         setOpen(true);
         setShowUtils(true);
-        setPreviewImageStyle({
-            maxHeight: '100%',
-            maxWidth: '100%',
-        });
+        setTimeout(handleFixScreen);
     };
     const handleClose = () => {
         setOpen(false);
@@ -98,12 +95,38 @@ const ImageViewer: ForwardRefRenderFunction<IImageViewer, IProps> = (
             marginTop,
         });
     };
-    const handleFixScreen = (event: React.MouseEvent<HTMLButtonElement>) => {
-        event.stopPropagation();
-        setPreviewImageStyle({
-            maxHeight: '100%',
-            maxWidth: '100%',
-        });
+    const handleFixScreen = (event?: React.MouseEvent<HTMLButtonElement>) => {
+        event && event.stopPropagation();
+        const previewImageInstance = previewImageRef.current;
+        if (!previewImageInstance) {
+            return;
+        }
+        const parentElement = previewImageInstance.parentElement;
+        if (!parentElement) {
+            return;
+        }
+        const remSize = parseInt(document.documentElement.style.fontSize.replace('px', ''));
+        const parentWidth = parentElement.clientWidth - remSize * 6;
+        const parentHeight = parentElement.clientHeight - remSize * 6;
+        const naturalWidth = previewImageInstance.naturalWidth;
+        const naturalHeight = previewImageInstance.naturalHeight;
+        if (parentWidth / parentHeight > naturalWidth / naturalHeight) {
+            const height = parentHeight;
+            const width = (height / naturalHeight) * naturalWidth;
+            setPreviewImageStyle({
+                width,
+                height,
+            });
+        } else {
+            const width = parentWidth;
+            const height = (width / naturalWidth) * naturalHeight;
+            const marginTop = calcMarginTop(height);
+            setPreviewImageStyle({
+                width,
+                height,
+                marginTop,
+            });
+        }
     };
     const calcMarginTop = (imageHeight: number) => {
         const previewImageInstance = previewImageRef.current;
