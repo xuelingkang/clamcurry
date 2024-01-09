@@ -1,6 +1,6 @@
 # Clamcurry
 
-A cross-platform markdown notebook. Built based on electron. Not verified on Windows and Linux.
+A cross-platform markdown notebook. Built based on electron.
 
 ## Features
 
