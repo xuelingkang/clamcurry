@@ -26,19 +26,20 @@ mac:
         - x64
         - arm64
 win:
-  artifactName: ${productName}-${version}-windows-amd64.${ext}
+  artifactName: ${productName}-${version}-windows-${arch}.${ext}
   icon: logo/win/logo.ico
   target:
     - target: nsis
       arch:
         - x64
 linux:
-  artifactName: ${productName}-${version}-linux-amd64.${ext}
+  artifactName: ${productName}-${version}-linux-${arch}.${ext}
   icon: logo/linux
   target:
     - target: AppImage
       arch:
         - x64
+        - arm64
 nsis:
   oneClick: false
   perMachine: true
