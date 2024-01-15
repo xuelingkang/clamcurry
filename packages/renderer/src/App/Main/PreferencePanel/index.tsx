@@ -139,7 +139,7 @@ const PreferencePanel: FC = () => {
         const newPreference = updatePreferenceState('maxOpen', value);
         submit(newPreference);
     };
-    const handlesearchNoteLimitChangeCommit = (value: number) => {
+    const handleSearchNoteLimitChangeCommit = (value: number) => {
         dispatch(
             updateAppState({
                 searchNoteLimit: value,
@@ -331,7 +331,7 @@ const PreferencePanel: FC = () => {
                             ]}
                             value={preference.searchNoteLimit}
                             onChange={(_event, value) => updatePreferenceState('searchNoteLimit', value)}
-                            onChangeCommitted={(_event, value) => handlesearchNoteLimitChangeCommit(value as number)}
+                            onChangeCommitted={(_event, value) => handleSearchNoteLimitChangeCommit(value as number)}
                         />
                     </FormControl>
                 </Grid>
