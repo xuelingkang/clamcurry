@@ -217,9 +217,12 @@ const Editor: FC<IProps> = (props: IProps) => {
                         overviewRulerBorder: false,
                         scrollbar: {
                             verticalScrollbarSize: 5,
+                            horizontalScrollbarSize: 5,
                             useShadows: false,
                         },
                         fontSize: (fontSize || 16) * remFontSize,
+                        suggestOnTriggerCharacters: false,
+                        quickSuggestions: false,
                     }}
                 />
             </Box>
