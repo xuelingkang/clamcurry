@@ -58,10 +58,17 @@ const Editor: FC<IProps> = (props: IProps) => {
         if (!editor) {
             return;
         }
+        let keyDownEventDisposer: monaco.IDisposable;
         if (vimMode) {
             if (vimModeEnabled) {
                 return;
             }
+            // disable vimKeyMap while input method processing
+            keyDownEventDisposer = editor.onKeyDown((event: monaco.IKeyboardEvent) => {
+                if (event.keyCode >= 114) {
+                    event.preventDefault();
+                }
+            });
             const vimStatusBarInstance = vimStatusBarRef.current;
             const vimAdapter = MonacoVim.initVimMode(editor, vimStatusBarInstance);
             setVimAdapter(vimAdapter);
@@ -73,6 +80,11 @@ const Editor: FC<IProps> = (props: IProps) => {
             vimAdapter && vimAdapter.dispose();
             setVimModeEnabled(false);
         }
+        return () => {
+            if (keyDownEventDisposer) {
+                keyDownEventDisposer.dispose();
+            }
+        };
     }, [editor, vimMode]);
     useEffect(() => {
         if (initialized) {
@@ -84,57 +96,57 @@ const Editor: FC<IProps> = (props: IProps) => {
         editor.setSelection(new monaco.Selection(1, 0, 1, 0));
         setInitialized(true);
     }, [editor, content]);
+    const handlePaste = (event: ClipboardEvent) => {
+        if (!editor) {
+            return;
+        }
+        event.stopPropagation();
+        event.preventDefault();
+        const items = event.clipboardData?.items || [];
+        for (let i = 0; i < items.length; i++) {
+            const item = items[i];
+            let selection = editor.getSelection() as monaco.Selection;
+            if (item.kind === 'file' && item.type.startsWith('image/')) {
+                const image = item.getAsFile() as File;
+                const name = image.name;
+                const prefix = note.id.toString();
+                const nameWithoutExt = name.substring(0, name.lastIndexOf('.'));
+                const fileReader = new FileReader();
+                fileReader.onload = (event: ProgressEvent<FileReader>) => {
+                    const data = (event.target && event.target.result) as ArrayBuffer;
+                    const url = window.mainProcessService.upload({ name, prefix, data });
+                    editor.executeEdits('', [
+                        {
+                            range: monaco.Range.lift(selection),
+                            text: `![${name}](${url} "${nameWithoutExt}")\n`,
+                        },
+                    ]);
+                };
+                fileReader.readAsArrayBuffer(image);
+            } else if (item.kind === 'string' && item.type === 'text/plain') {
+                item.getAsString((data) => {
+                    editor.executeEdits('', [
+                        {
+                            range: monaco.Range.lift(selection),
+                            text: data,
+                        },
+                    ]);
+                });
+            } else {
+                continue;
+            }
+            selection = editor.getSelection() as monaco.Selection;
+            const lineNumber = selection.endLineNumber;
+            const column = selection.endColumn;
+            editor.setSelection(new monaco.Selection(lineNumber, column, lineNumber, column));
+        }
+    };
     useEffect(() => {
         if (!editor) {
             return;
         }
-        editor.getDomNode()?.addEventListener(
-            'paste',
-            (event) => {
-                event.stopPropagation();
-                event.preventDefault();
-                const items = event.clipboardData?.items || [];
-                for (let i = 0; i < items.length; i++) {
-                    const item = items[i];
-                    let selection = editor.getSelection() as monaco.Selection;
-                    if (item.kind === 'file' && item.type.startsWith('image/')) {
-                        const image = item.getAsFile() as File;
-                        const name = image.name;
-                        const prefix = note.id.toString();
-                        const nameWithoutExt = name.substring(0, name.lastIndexOf('.'));
-                        const fileReader = new FileReader();
-                        fileReader.onload = (event: ProgressEvent<FileReader>) => {
-                            const data = (event.target && event.target.result) as ArrayBuffer;
-                            const url = window.mainProcessService.upload({ name, prefix, data });
-                            editor.executeEdits('', [
-                                {
-                                    range: monaco.Range.lift(selection),
-                                    text: `![${name}](${url} "${nameWithoutExt}")\n`,
-                                },
-                            ]);
-                        };
-                        fileReader.readAsArrayBuffer(image);
-                    } else if (item.kind === 'string' && item.type === 'text/plain') {
-                        item.getAsString((data) => {
-                            editor.executeEdits('', [
-                                {
-                                    range: monaco.Range.lift(selection),
-                                    text: data,
-                                },
-                            ]);
-                        });
-                    } else {
-                        continue;
-                    }
-                    selection = editor.getSelection() as monaco.Selection;
-                    const lineNumber = selection.endLineNumber;
-                    const column = selection.endColumn;
-                    editor.setSelection(new monaco.Selection(lineNumber, column, lineNumber, column));
-                }
-            },
-            true,
-        );
-        editor.onDidScrollChange(() => {
+        editor.getDomNode()?.addEventListener('paste', handlePaste, true);
+        const scrollEventDisposer = editor.onDidScrollChange(() => {
             if (!onScroll) {
                 return;
             }
@@ -156,12 +168,17 @@ const Editor: FC<IProps> = (props: IProps) => {
                 }
             });
         }, 10);
-        editor.onKeyDown((event: monaco.IKeyboardEvent) => {
+        const keyDownEventDisposer = editor.onKeyDown((event: monaco.IKeyboardEvent) => {
             // disable Command Palette
             if (event.code === 'F1') {
                 event.stopPropagation();
             }
         });
+        return () => {
+            editor.getDomNode()?.removeEventListener('paste', handlePaste, true);
+            scrollEventDisposer.dispose();
+            keyDownEventDisposer.dispose();
+        };
     }, [editor]);
     const handleMount = (editor: monaco.editor.IStandaloneCodeEditor) => {
         // store editor instance for further usage
