@@ -58,6 +58,13 @@ const Editor: FC<IProps> = (props: IProps) => {
         if (!editor) {
             return;
         }
+        const keyDownEventDisposer = editor.onKeyDown((event: monaco.IKeyboardEvent) => {
+            // before initVimMode
+            // disable keyMap while input method processing
+            if (event.keyCode >= 114) {
+                event.preventDefault();
+            }
+        });
         if (vimMode) {
             if (vimModeEnabled) {
                 return;
@@ -73,6 +80,9 @@ const Editor: FC<IProps> = (props: IProps) => {
             vimAdapter && vimAdapter.dispose();
             setVimModeEnabled(false);
         }
+        return () => {
+            keyDownEventDisposer.dispose();
+        };
     }, [editor, vimMode]);
     useEffect(() => {
         if (initialized) {
@@ -160,10 +170,6 @@ const Editor: FC<IProps> = (props: IProps) => {
             // disable Command Palette
             if (event.code === 'F1') {
                 event.stopPropagation();
-            }
-            // disable keyMap while input method processing
-            if (event.keyCode >= 114) {
-                event.preventDefault();
             }
         });
         return () => {
