@@ -255,7 +255,7 @@ const Editor: FC<IProps> = (props: IProps) => {
                         writingMode: 'horizontal-tb',
                         paddingBlock: '1px',
                         paddingInline: '2px',
-                        color: theme.foreground1,
+                        color: `#${theme.foreground1}`,
                     },
                 }}
             />
