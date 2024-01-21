@@ -238,6 +238,9 @@ const Editor: FC<IProps> = (props: IProps) => {
                         fontSize: (fontSize || 16) * remFontSize,
                         suggestOnTriggerCharacters: false,
                         quickSuggestions: false,
+                        unicodeHighlight: {
+                            ambiguousCharacters: false,
+                        },
                     }}
                 />
             </Box>
