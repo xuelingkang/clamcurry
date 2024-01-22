@@ -65,6 +65,7 @@ const createMuiTheme = (theme: ThemeVo): Theme => {
             MuiCssBaseline: {
                 styleOverrides: {
                     body: {
+                        userSelect: 'none',
                         '*::-webkit-scrollbar': {
                             width: '5px',
                             height: '5px',
