@@ -36,6 +36,7 @@ class NoteDao {
             const noteContent = new NoteContent();
             noteContent.id = note.id;
             noteContent.notebookId = note.notebookId;
+            noteContent.content = '';
             await manager.getRepository(NoteContent).save(noteContent);
             return note.id;
         });

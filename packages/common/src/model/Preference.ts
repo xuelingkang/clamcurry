@@ -31,6 +31,9 @@ export default class Preference {
     @Column({ name: 'vim_mode' })
     vimMode: boolean;
 
+    @Column({ name: 'relative_line_number' })
+    relativeLineNumber: boolean;
+
     @Column({ name: 'search_note_limit' })
     searchNoteLimit: number;
 

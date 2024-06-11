@@ -1,9 +1,9 @@
 import { combineReducers, configureStore, Middleware } from '@reduxjs/toolkit';
-import appSlice from './slices/AppSlice';
-import sidebarSlice from './slices/SidebarSlice';
-import messageSlice from './slices/MessageSlice';
-import notebooksSlice from './slices/NotebooksSlice';
-import panelsSlice from './slices/PanelsSlice';
+import appSlice from '@/store/slices/AppSlice';
+import sidebarSlice from '@/store/slices/SidebarSlice';
+import messageSlice from '@/store/slices/MessageSlice';
+import notebooksSlice from '@/store/slices/NotebooksSlice';
+import panelsSlice from '@/store/slices/PanelsSlice';
 
 const middlewares: Middleware[] = [];
 if (process.env.NODE_ENV === 'development') {

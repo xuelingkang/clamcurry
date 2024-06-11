@@ -1,9 +1,9 @@
 import React, { FC, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, IconButton, Popover, Stack, Typography } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { closePanel, IPanel } from '../../../../store/slices/PanelsSlice';
-import { useTranslation } from 'react-i18next';
-import { useAppDispatch } from '../../../../store/hooks';
+import { closePanel, IPanel } from '@/store/slices/PanelsSlice';
+import { useAppDispatch } from '@/store/hooks';
 
 interface IProps {
     panel: IPanel;

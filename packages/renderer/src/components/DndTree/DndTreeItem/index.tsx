@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
 import { useDrag } from 'react-dnd';
 import { TreeItem } from '@mui/x-tree-view';
-import DndTreeItemContentHOC from '../DndTreeItemContentHOC';
-import { DndType, IDndTreeItem } from '../index';
+import DndTreeItemContentHOC from '@/components/DndTree/DndTreeItemContentHOC';
+import { DndType, IDndTreeItem } from '@/components/DndTree';
 
 export interface IDndTreeItemProps extends IDndTreeItem {
     childItems?: IDndTreeItemProps[];

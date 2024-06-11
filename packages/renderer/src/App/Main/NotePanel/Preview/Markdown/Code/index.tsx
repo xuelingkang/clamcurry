@@ -6,8 +6,8 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { createElement, Prism as SyntaxHighlighter, SyntaxHighlighterProps } from 'react-syntax-highlighter';
 import { useTranslation } from 'react-i18next';
 import copy from 'copy-to-clipboard';
-import toast from '../../../../../../components/Toast';
-import If from '../../../../../../components/If';
+import toast from '@/components/Toast';
+import If from '@/components/If';
 import clsx from 'clsx';
 
 type IProps = React.ClassAttributes<HTMLElement> &

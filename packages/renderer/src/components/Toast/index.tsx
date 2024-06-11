@@ -1,8 +1,8 @@
 import React, { FC, useEffect, useState } from 'react';
 import { Alert, Snackbar } from '@mui/material';
-import { useAppSelector } from '../../store/hooks';
-import { setMessageState } from '../../store/slices/MessageSlice';
-import store from '../../store';
+import { useAppSelector } from '@/store/hooks';
+import { setMessageState } from '@/store/slices/MessageSlice';
+import store from '@/store';
 
 export const Toast: FC = () => {
     const [open, setOpen] = useState(false);

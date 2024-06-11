@@ -17,17 +17,17 @@ import {
     Typography,
 } from '@mui/material';
 import { AssertUtils, ThemeBaseEnum, ThemeVo, UpdateThemeDto } from '@clamcurry/common';
-import PromiseUtils from '../../../utils/PromiseUtils';
-import { ThemeContext } from '../../../components/ThemeProvider';
+import PromiseUtils from '@/utils/PromiseUtils';
+import { ThemeContext } from '@/components/ThemeProvider';
 import { useTranslation } from 'react-i18next';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import BackspaceIcon from '@mui/icons-material/Backspace';
 import { MuiColorInput } from 'mui-color-input';
-import CopyThemeDialog, { ICopyThemeDialog } from './CopyThemeDialog';
-import DeleteThemeDialog, { IDeleteThemeDialog } from './DeleteThemeDialog';
+import CopyThemeDialog, { ICopyThemeDialog } from '@/App/Main/ThemePanel/CopyThemeDialog';
+import DeleteThemeDialog, { IDeleteThemeDialog } from '@/App/Main/ThemePanel/DeleteThemeDialog';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
-import If from '../../../components/If';
+import If from '@/components/If';
 
 const initialActiveTheme = {
     id: 0,

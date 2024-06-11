@@ -11,7 +11,7 @@ import { TreeItemProps, TreeView, TreeViewProps } from '@mui/x-tree-view';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { ArrayUtils } from '@clamcurry/common';
-import DndTreeItem, { IDndTreeItemProps } from './DndTreeItem';
+import DndTreeItem, { IDndTreeItemProps } from '@/components/DndTree/DndTreeItem';
 import { SxProps } from '@mui/material';
 
 export const DndType = 'DndTreeItem';

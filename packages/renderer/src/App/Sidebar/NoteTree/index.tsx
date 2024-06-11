@@ -1,24 +1,24 @@
 import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
-import DndTree, { IDndTree, IDndTreeItem } from '../../../components/DndTree';
+import DndTree, { IDndTree, IDndTreeItem } from '@/components/DndTree';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { ArrayUtils, NoteVo, UpdateNoteDto } from '@clamcurry/common';
-import { updateNotebookState } from '../../../store/slices/NotebooksSlice';
-import PromiseUtils from '../../../utils/PromiseUtils';
-import { useAppDispatch, useAppSelector } from '../../../store/hooks';
+import { updateNotebookState } from '@/store/slices/NotebooksSlice';
+import PromiseUtils from '@/utils/PromiseUtils';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import SubjectIcon from '@mui/icons-material/Subject';
 import { Box, ButtonGroup, IconButton, ListItemIcon, ListItemText, MenuItem, MenuList, Tooltip } from '@mui/material';
 import CreateIcon from '@mui/icons-material/Create';
 import FilterCenterFocusIcon from '@mui/icons-material/FilterCenterFocus';
 import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
 import UnfoldLessIcon from '@mui/icons-material/UnfoldLess';
-import { openNotePanel } from '../../../store/slices/PanelsSlice';
+import { openNotePanel } from '@/store/slices/PanelsSlice';
 import { useTranslation } from 'react-i18next';
-import NewNoteDialog, { INewNoteDialog } from './NewNoteDialog';
+import NewNoteDialog, { INewNoteDialog } from '@/App/Sidebar/NoteTree/NewNoteDialog';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import BackspaceIcon from '@mui/icons-material/Backspace';
-import RenameNoteDialog, { IRenameNoteDialog } from './RenameNoteDialog';
-import DeleteNoteDialog, { IDeleteNoteDialog } from './DeleteNoteDialog';
+import RenameNoteDialog, { IRenameNoteDialog } from '@/App/Sidebar/NoteTree/RenameNoteDialog';
+import DeleteNoteDialog, { IDeleteNoteDialog } from '@/App/Sidebar/NoteTree/DeleteNoteDialog';
 
 interface IProps {}
 

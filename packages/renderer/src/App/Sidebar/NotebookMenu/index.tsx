@@ -13,20 +13,20 @@ import {
     Typography,
 } from '@mui/material';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch, useAppSelector } from '../../../store/hooks';
-import { updateNotebookState } from '../../../store/slices/NotebooksSlice';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { updateNotebookState } from '@/store/slices/NotebooksSlice';
 import { NotebookVo } from '@clamcurry/common';
-import PromiseUtils from '../../../utils/PromiseUtils';
-import { updatePanelsState } from '../../../store/slices/PanelsSlice';
-import NewNotebookDialog, { INewNotebookDialog } from './NewNotebookDialog';
+import PromiseUtils from '@/utils/PromiseUtils';
+import { updatePanelsState } from '@/store/slices/PanelsSlice';
+import NewNotebookDialog, { INewNotebookDialog } from '@/App/Sidebar/NotebookMenu/NewNotebookDialog';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import CreateIcon from '@mui/icons-material/Create';
-import If from '../../../components/If';
+import If from '@/components/If';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import BackspaceIcon from '@mui/icons-material/Backspace';
-import RenameNotebookDialog, { IRenameNotebookDialog } from './RenameNotebookDialog';
-import DeleteNotebookDialog, { IDeleteNotebookDialog } from './DeleteNotebookDialog';
+import RenameNotebookDialog, { IRenameNotebookDialog } from '@/App/Sidebar/NotebookMenu/RenameNotebookDialog';
+import DeleteNotebookDialog, { IDeleteNotebookDialog } from '@/App/Sidebar/NotebookMenu/DeleteNotebookDialog';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 

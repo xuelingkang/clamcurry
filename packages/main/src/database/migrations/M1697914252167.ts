@@ -448,13 +448,9 @@ export default class M1697914252167 implements MigrationInterface {
 
     async initData(queryRunner: QueryRunner, readme: string) {
         const now = TimeUtils.currentTimeMillis();
-        const preferenceRepository = queryRunner.manager.getRepository(Preference);
-        const themeRepository = queryRunner.manager.getRepository(Theme);
-        const notebookRepository = queryRunner.manager.getRepository(Notebook);
-        const noteRepository = queryRunner.manager.getRepository(Note);
-        const noteContentRepository = queryRunner.manager.getRepository(NoteContent);
 
         const presetLightTheme = new Theme();
+        presetLightTheme.id = 1;
         presetLightTheme.name = 'Preset Light';
         presetLightTheme.base = ThemeBaseEnum.LIGHT;
         presetLightTheme.foreground1 = '000000FF';
@@ -487,9 +483,47 @@ export default class M1697914252167 implements MigrationInterface {
         presetLightTheme.preset = true;
         presetLightTheme.createTime = now;
         presetLightTheme.updateTime = now;
-        await themeRepository.save(presetLightTheme);
+        await queryRunner.query(
+            'INSERT INTO theme (id, name, base, foreground1, foreground2, foreground3, foreground4, background1, background2, background3, background4, divider1, divider2, scrollbar, selection, active_line, line_number1, line_number2, highlighter1, highlighter2, highlighter3, highlighter4, highlighter5, highlighter6, `primary`, secondary, success, info, warning, error, preset, create_time, update_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            [
+                presetLightTheme.id,
+                presetLightTheme.name,
+                presetLightTheme.base,
+                presetLightTheme.foreground1,
+                presetLightTheme.foreground2,
+                presetLightTheme.foreground3,
+                presetLightTheme.foreground4,
+                presetLightTheme.background1,
+                presetLightTheme.background2,
+                presetLightTheme.background3,
+                presetLightTheme.background4,
+                presetLightTheme.divider1,
+                presetLightTheme.divider2,
+                presetLightTheme.scrollbar,
+                presetLightTheme.selection,
+                presetLightTheme.activeLine,
+                presetLightTheme.lineNumber1,
+                presetLightTheme.lineNumber2,
+                presetLightTheme.highlighter1,
+                presetLightTheme.highlighter2,
+                presetLightTheme.highlighter3,
+                presetLightTheme.highlighter4,
+                presetLightTheme.highlighter5,
+                presetLightTheme.highlighter6,
+                presetLightTheme.primary,
+                presetLightTheme.secondary,
+                presetLightTheme.success,
+                presetLightTheme.info,
+                presetLightTheme.warning,
+                presetLightTheme.error,
+                presetLightTheme.preset,
+                presetLightTheme.createTime,
+                presetLightTheme.updateTime,
+            ],
+        );
 
         const presetDarkTheme = new Theme();
+        presetDarkTheme.id = 2;
         presetDarkTheme.name = 'Preset Dark';
         presetDarkTheme.base = ThemeBaseEnum.DARK;
         presetDarkTheme.foreground1 = 'F8F8F2FF';
@@ -522,7 +556,44 @@ export default class M1697914252167 implements MigrationInterface {
         presetDarkTheme.preset = true;
         presetDarkTheme.createTime = now;
         presetDarkTheme.updateTime = now;
-        await themeRepository.save(presetDarkTheme);
+        await queryRunner.query(
+            'INSERT INTO theme (id, name, base, foreground1, foreground2, foreground3, foreground4, background1, background2, background3, background4, divider1, divider2, scrollbar, selection, active_line, line_number1, line_number2, highlighter1, highlighter2, highlighter3, highlighter4, highlighter5, highlighter6, `primary`, secondary, success, info, warning, error, preset, create_time, update_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            [
+                presetDarkTheme.id,
+                presetDarkTheme.name,
+                presetDarkTheme.base,
+                presetDarkTheme.foreground1,
+                presetDarkTheme.foreground2,
+                presetDarkTheme.foreground3,
+                presetDarkTheme.foreground4,
+                presetDarkTheme.background1,
+                presetDarkTheme.background2,
+                presetDarkTheme.background3,
+                presetDarkTheme.background4,
+                presetDarkTheme.divider1,
+                presetDarkTheme.divider2,
+                presetDarkTheme.scrollbar,
+                presetDarkTheme.selection,
+                presetDarkTheme.activeLine,
+                presetDarkTheme.lineNumber1,
+                presetDarkTheme.lineNumber2,
+                presetDarkTheme.highlighter1,
+                presetDarkTheme.highlighter2,
+                presetDarkTheme.highlighter3,
+                presetDarkTheme.highlighter4,
+                presetDarkTheme.highlighter5,
+                presetDarkTheme.highlighter6,
+                presetDarkTheme.primary,
+                presetDarkTheme.secondary,
+                presetDarkTheme.success,
+                presetDarkTheme.info,
+                presetDarkTheme.warning,
+                presetDarkTheme.error,
+                presetDarkTheme.preset,
+                presetDarkTheme.createTime,
+                presetDarkTheme.updateTime,
+            ],
+        );
 
         const defaultPreference = new Preference();
         defaultPreference.id = 1;
@@ -538,16 +609,44 @@ export default class M1697914252167 implements MigrationInterface {
         defaultPreference.themeId = nativeTheme.shouldUseDarkColors ? presetDarkTheme.id : presetLightTheme.id;
         defaultPreference.createTime = now;
         defaultPreference.updateTime = now;
-        await preferenceRepository.save(defaultPreference);
+        await queryRunner.query(
+            'INSERT INTO preference (id, language, editor_mode, sidebar_width, outline_width, max_open, font_size, tab_size, vim_mode, search_note_limit, theme_id, create_time, update_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            [
+                defaultPreference.id,
+                defaultPreference.language,
+                defaultPreference.editorMode,
+                defaultPreference.sidebarWidth,
+                defaultPreference.outlineWidth,
+                defaultPreference.maxOpen,
+                defaultPreference.fontSize,
+                defaultPreference.tabSize,
+                defaultPreference.vimMode,
+                defaultPreference.searchNoteLimit,
+                defaultPreference.themeId,
+                defaultPreference.createTime,
+                defaultPreference.updateTime,
+            ],
+        );
 
         const defaultNotebook = new Notebook();
+        defaultNotebook.id = 1;
         defaultNotebook.name = 'Default Notebook';
         defaultNotebook.enabled = true;
         defaultNotebook.createTime = now;
         defaultNotebook.updateTime = now;
-        await notebookRepository.save(defaultNotebook);
+        await queryRunner.query(
+            'INSERT INTO notebook (id, name, enabled, create_time, update_time) VALUES (?, ?, ?, ?, ?)',
+            [
+                defaultNotebook.id,
+                defaultNotebook.name,
+                defaultNotebook.enabled,
+                defaultNotebook.createTime,
+                defaultNotebook.updateTime,
+            ],
+        );
 
         const readmeNote = new Note();
+        readmeNote.id = 1;
         readmeNote.title = 'README';
         readmeNote.parentId = 0;
         readmeNote.notebookId = defaultNotebook.id;
@@ -555,13 +654,29 @@ export default class M1697914252167 implements MigrationInterface {
         readmeNote.createTime = now;
         readmeNote.updateTime = now;
         readmeNote.visitTime = now;
-        await noteRepository.save(readmeNote);
+        await queryRunner.query(
+            'INSERT INTO note (id, title, parent_id, notebook_id, ordinal, create_time, update_time, visit_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+            [
+                readmeNote.id,
+                readmeNote.title,
+                readmeNote.parentId,
+                readmeNote.notebookId,
+                readmeNote.ordinal,
+                readmeNote.createTime,
+                readmeNote.updateTime,
+                readmeNote.visitTime,
+            ],
+        );
 
         const readmeNoteContent = new NoteContent();
         readmeNoteContent.id = readmeNote.id;
         readmeNoteContent.notebookId = defaultNotebook.id;
         readmeNoteContent.content = readme;
-        await noteContentRepository.save(readmeNoteContent);
+        await queryRunner.query('INSERT INTO note_content (id, notebook_id, content) VALUES (?, ?, ?)', [
+            readmeNoteContent.id,
+            readmeNoteContent.notebookId,
+            readmeNoteContent.content,
+        ]);
     }
 
     getDefaultLanguage(): LanguageEnum {

@@ -3,11 +3,11 @@ import { AssertUtils, SaveNotebookDto } from '@clamcurry/common';
 import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@mui/material';
 import CreateIcon from '@mui/icons-material/Create';
 import { useTranslation } from 'react-i18next';
-import PromiseUtils from '../../../../utils/PromiseUtils';
-import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
-import { updateNotebookState } from '../../../../store/slices/NotebooksSlice';
-import toast from '../../../../components/Toast';
-import { updatePanelsState } from '../../../../store/slices/PanelsSlice';
+import PromiseUtils from '@/utils/PromiseUtils';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { updateNotebookState } from '@/store/slices/NotebooksSlice';
+import toast from '@/components/Toast';
+import { updatePanelsState } from '@/store/slices/PanelsSlice';
 
 export interface INewNotebookDialog {
     open: () => void;

@@ -1,10 +1,10 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import { Resizable } from 're-resizable';
 import { Box } from '@mui/material';
-import NotebookMenu from './NotebookMenu';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { updateSidebarState } from '../../store/slices/SidebarSlice';
-import NoteTree from './NoteTree';
+import NotebookMenu from '@/App/Sidebar/NotebookMenu';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { updateSidebarState } from '@/store/slices/SidebarSlice';
+import NoteTree from '@/App/Sidebar/NoteTree';
 
 const Sidebar: FC = () => {
     const sidebarWidth = useAppSelector((state) => state.sidebarState.sidebarWidth);

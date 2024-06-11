@@ -31,6 +31,7 @@ class PreferenceService implements IPreferenceService {
         preference.fontSize = dto.fontSize;
         preference.tabSize = dto.tabSize;
         preference.vimMode = dto.vimMode;
+        preference.relativeLineNumber = dto.relativeLineNumber;
         preference.searchNoteLimit = dto.searchNoteLimit;
         preference.themeId = dto.themeId;
         preference.updateTime = now;

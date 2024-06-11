@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { ExtraProps } from 'react-markdown';
-import PromiseUtils from '../../../../../../utils/PromiseUtils';
+import PromiseUtils from '@/utils/PromiseUtils';
 
 type IProps = React.ClassAttributes<HTMLAnchorElement> & React.AnchorHTMLAttributes<HTMLAnchorElement> & ExtraProps;
 

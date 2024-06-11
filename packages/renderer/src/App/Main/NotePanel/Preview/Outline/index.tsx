@@ -8,13 +8,13 @@ import React, {
     useRef,
     useState,
 } from 'react';
-import DndTree, { IDndTreeItem } from '../../../../../components/DndTree';
+import { useTranslation } from 'react-i18next';
+import DndTree, { IDndTreeItem } from '@/components/DndTree';
 import BookmarksIcon from '@mui/icons-material/Bookmarks';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
-import { useTranslation } from 'react-i18next';
 import { Box, IconButton, Tooltip } from '@mui/material';
-import { ThemeContext } from '../../../../../components/ThemeProvider';
+import { ThemeContext } from '@/components/ThemeProvider';
 
 export interface IOutline {
     focus: (titleId: string) => void;

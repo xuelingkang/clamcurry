@@ -26,6 +26,7 @@
             "fontSize": "Font Size",
             "tabSize": "Tab Size",
             "vimMode": "Vim Mode",
+            "relativeLineNumber": "Relative Line Number",
             "themeId": "Theme",
             "searchNoteLimit": "Search Notes Limit"
         },

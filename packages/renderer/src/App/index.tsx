@@ -1,15 +1,15 @@
 import React, { FC, useEffect } from 'react';
 import { Stack } from '@mui/material';
-import Sidebar from './Sidebar';
-import { Toast } from '../components/Toast';
-import Main from './Main';
-import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { updateMaxOpen } from '../store/slices/PanelsSlice';
-import { updateSidebarState } from '../store/slices/SidebarSlice';
+import Sidebar from '@/App/Sidebar';
+import { Toast } from '@/components/Toast';
+import Main from '@/App/Main';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { updateMaxOpen } from '@/store/slices/PanelsSlice';
+import { updateSidebarState } from '@/store/slices/SidebarSlice';
 import { PreferenceVo } from '@clamcurry/common';
 import { useTranslation } from 'react-i18next';
-import PromiseUtils from '../utils/PromiseUtils';
-import { updateAppState } from '../store/slices/AppSlice';
+import PromiseUtils from '@/utils/PromiseUtils';
+import { updateAppState } from '@/store/slices/AppSlice';
 
 interface IProps {
     preference: PreferenceVo;
@@ -39,6 +39,7 @@ const App: FC<IProps> = (props: IProps) => {
             fontSize,
             tabSize,
             vimMode,
+            relativeLineNumber,
             searchNoteLimit,
         } = preference;
         dispatch(updateMaxOpen(maxOpen));
@@ -50,6 +51,7 @@ const App: FC<IProps> = (props: IProps) => {
                 fontSize,
                 tabSize,
                 vimMode,
+                relativeLineNumber,
                 searchNoteLimit,
             }),
         );

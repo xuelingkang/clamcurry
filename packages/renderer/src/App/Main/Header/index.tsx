@@ -7,16 +7,16 @@ import ImageIcon from '@mui/icons-material/Image';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import { Box, IconButton, Stack, Tab, Tabs, ToggleButton, ToggleButtonGroup, Tooltip } from '@mui/material';
 import { EditorModeEnum } from '@clamcurry/common';
-import If from '../../../components/If';
-import TabLabel from './TabLabel';
-import { useAppDispatch, useAppSelector } from '../../../store/hooks';
-import { changePanel, PanelTypeEnum } from '../../../store/slices/PanelsSlice';
-import { updateSidebarState } from '../../../store/slices/SidebarSlice';
-import { updateAppState } from '../../../store/slices/AppSlice';
-import { ThemeContext } from '../../../components/ThemeProvider';
+import If from '@/components/If';
+import TabLabel from '@/App/Main/Header/TabLabel';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { changePanel, PanelTypeEnum } from '@/store/slices/PanelsSlice';
+import { updateSidebarState } from '@/store/slices/SidebarSlice';
+import { updateAppState } from '@/store/slices/AppSlice';
+import { ThemeContext } from '@/components/ThemeProvider';
 import { useTranslation } from 'react-i18next';
-import toast from '../../../components/Toast';
-import PromiseUtils from '../../../utils/PromiseUtils';
+import toast from '@/components/Toast';
+import PromiseUtils from '@/utils/PromiseUtils';
 
 const Header: FC = () => {
     const { theme } = useContext(ThemeContext);

@@ -26,6 +26,7 @@
             "fontSize": "字体大小",
             "tabSize": "缩进大小",
             "vimMode": "Vim模式",
+            "relativeLineNumber": "相对行号",
             "themeId": "主题",
             "searchNoteLimit": "搜索笔记数量"
         },

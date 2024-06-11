@@ -10,16 +10,16 @@ import React, {
     useState,
 } from 'react';
 import { Box, IconButton, Tooltip } from '@mui/material';
-import If from '../../../../components/If';
-import { ThemeContext } from '../../../../components/ThemeProvider';
-import style from './style';
-import { useAppSelector } from '../../../../store/hooks';
+import { ThemeContext } from '@/components/ThemeProvider';
+import { useAppSelector } from '@/store/hooks';
 import { EditorModeEnum } from '@clamcurry/common';
-import Outline, { IOutline } from './Outline';
-import Markdown, { IMarkdown } from './Markdown';
+import Outline, { IOutline } from '@/App/Main/NotePanel/Preview/Outline';
+import Markdown, { IMarkdown } from '@/App/Main/NotePanel/Preview/Markdown';
 import { Resizable } from 're-resizable';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import { useTranslation } from 'react-i18next';
+import If from '@/components/If';
+import style from '@/App/Main/NotePanel/Preview/style';
 
 export interface IPreview {
     syncScrollWithEditor: (lineNumber: number) => void;

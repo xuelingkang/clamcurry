@@ -2,9 +2,9 @@ import React, { forwardRef, useContext, useState } from 'react';
 import { TreeItemContentProps, useTreeItem } from '@mui/x-tree-view';
 import { Box, Divider, Menu, Popover, Typography, useTheme } from '@mui/material';
 import clsx from 'clsx';
-import If from '../../If';
-import DndTreeDroppable from '../DndTreeDroppable';
-import { DndTreeContext, IDndTreeItem } from '../index';
+import If from '@/components/If';
+import DndTreeDroppable from '@/components/DndTree/DndTreeDroppable';
+import { DndTreeContext, IDndTreeItem } from '@/components/DndTree';
 
 enum PositionEnum {
     BEFORE,

@@ -1,21 +1,21 @@
 import React, { FC, useContext, useEffect } from 'react';
-import Header from './Header';
+import Header from '@/App/Main/Header';
 import { Box } from '@mui/material';
-import PreferencePanel from './PreferencePanel';
-import ThemePanel from './ThemePanel';
-import NotePanel from './NotePanel';
-import If from '../../components/If';
-import HomePanel from './HomePanel';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import PreferencePanel from '@/App/Main/PreferencePanel';
+import ThemePanel from '@/App/Main/ThemePanel';
+import NotePanel from '@/App/Main/NotePanel';
+import If from '@/components/If';
+import HomePanel from '@/App/Main/HomePanel';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import {
     closeActivePanel,
     openPreferencePanel,
     openSearchPanel,
     openThemePanel,
     PanelTypeEnum,
-} from '../../store/slices/PanelsSlice';
-import SearchPanel from './SearchPanel';
-import { ThemeContext } from '../../components/ThemeProvider';
+} from '@/store/slices/PanelsSlice';
+import SearchPanel from '@/App/Main/SearchPanel';
+import { ThemeContext } from '@/components/ThemeProvider';
 
 const Main: FC = () => {
     const { theme } = useContext(ThemeContext);

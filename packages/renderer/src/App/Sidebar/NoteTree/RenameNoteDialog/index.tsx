@@ -9,12 +9,12 @@ import React, {
 import { AssertUtils, NoteVo, UpdateNoteDto } from '@clamcurry/common';
 import { useTranslation } from 'react-i18next';
 import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@mui/material';
-import toast from '../../../../components/Toast';
+import toast from '@/components/Toast';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
-import PromiseUtils from '../../../../utils/PromiseUtils';
-import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
-import { updateNotebookState } from '../../../../store/slices/NotebooksSlice';
-import { updatePanelsState } from '../../../../store/slices/PanelsSlice';
+import PromiseUtils from '@/utils/PromiseUtils';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { updateNotebookState } from '@/store/slices/NotebooksSlice';
+import { updatePanelsState } from '@/store/slices/PanelsSlice';
 
 export interface IRenameNoteDialog {
     open: () => void;

@@ -1,9 +1,9 @@
 import React, { FC, useContext, useEffect, useRef, useState } from 'react';
-import { AssertUtils, NoteVo, TimeUtils } from '@clamcurry/common';
-import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 import { useTranslation } from 'react-i18next';
-import toast from '../../../components/Toast';
-import PromiseUtils from '../../../utils/PromiseUtils';
+import { AssertUtils, NoteVo, TimeUtils } from '@clamcurry/common';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import toast from '@/components/Toast';
+import PromiseUtils from '@/utils/PromiseUtils';
 import {
     Box,
     Chip,
@@ -20,8 +20,8 @@ import {
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
-import { ThemeContext } from '../../../components/ThemeProvider';
-import { openNotePanel } from '../../../store/slices/PanelsSlice';
+import { ThemeContext } from '@/components/ThemeProvider';
+import { openNotePanel } from '@/store/slices/PanelsSlice';
 
 const datetimeFormat = 'YYYY/MM/DD HH:mm';
 

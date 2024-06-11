@@ -1,11 +1,11 @@
 import React, { FC, useContext, useEffect, useRef, useState } from 'react';
 import { Box, Grid } from '@mui/material';
-import Editor from './Editor';
-import Preview, { IPreview } from './Preview';
+import Editor from '@/App/Main/NotePanel/Editor';
+import Preview, { IPreview } from '@/App/Main/NotePanel/Preview';
 import { EditorModeEnum, NoteVo } from '@clamcurry/common';
-import PromiseUtils from '../../../utils/PromiseUtils';
-import { useAppSelector } from '../../../store/hooks';
-import { ThemeContext } from '../../../components/ThemeProvider';
+import PromiseUtils from '@/utils/PromiseUtils';
+import { useAppSelector } from '@/store/hooks';
+import { ThemeContext } from '@/components/ThemeProvider';
 
 interface IProps {
     note: NoteVo;

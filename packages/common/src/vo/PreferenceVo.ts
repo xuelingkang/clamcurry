@@ -12,6 +12,7 @@ export default class PreferenceVo {
     fontSize: number;
     tabSize: number;
     vimMode: boolean;
+    relativeLineNumber: boolean;
     searchNoteLimit: number;
     themeId: number;
     createTime: number;

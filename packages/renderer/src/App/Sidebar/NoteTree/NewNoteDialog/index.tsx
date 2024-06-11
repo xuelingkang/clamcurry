@@ -1,13 +1,13 @@
 import React, { ForwardedRef, forwardRef, ForwardRefRenderFunction, useImperativeHandle, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { AssertUtils, NoteVo, SaveNoteDto } from '@clamcurry/common';
-import PromiseUtils from '../../../../utils/PromiseUtils';
-import toast from '../../../../components/Toast';
+import PromiseUtils from '@/utils/PromiseUtils';
+import toast from '@/components/Toast';
 import CreateIcon from '@mui/icons-material/Create';
-import { updateNotebookState } from '../../../../store/slices/NotebooksSlice';
-import { openNotePanel } from '../../../../store/slices/PanelsSlice';
+import { updateNotebookState } from '@/store/slices/NotebooksSlice';
+import { openNotePanel } from '@/store/slices/PanelsSlice';
 
 export interface INewNoteDialog {
     open: () => void;

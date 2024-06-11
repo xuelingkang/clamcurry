@@ -11,13 +11,13 @@ import {
     Slider,
 } from '@mui/material';
 import { EditorModeEnum, LanguageEnum, PreferenceVo, ThemeVo, UpdatePreferenceDto } from '@clamcurry/common';
-import PromiseUtils from '../../../utils/PromiseUtils';
+import PromiseUtils from '@/utils/PromiseUtils';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch } from '../../../store/hooks';
-import { updateAppState } from '../../../store/slices/AppSlice';
-import { ThemeContext } from '../../../components/ThemeProvider';
-import { updatePanelsState } from '../../../store/slices/PanelsSlice';
-import { updateSidebarState } from '../../../store/slices/SidebarSlice';
+import { useAppDispatch } from '@/store/hooks';
+import { updateAppState } from '@/store/slices/AppSlice';
+import { ThemeContext } from '@/components/ThemeProvider';
+import { updatePanelsState } from '@/store/slices/PanelsSlice';
+import { updateSidebarState } from '@/store/slices/SidebarSlice';
 
 const initialPreference = {
     id: 1,
@@ -29,6 +29,7 @@ const initialPreference = {
     fontSize: 12,
     tabSize: 2,
     vimMode: false,
+    relativeLineNumber: false,
     searchNoteLimit: 20,
     themeId: 0,
 } as PreferenceVo;
@@ -91,6 +92,17 @@ const PreferencePanel: FC = () => {
         dispatch(
             updateAppState({
                 vimMode,
+            }),
+        );
+    };
+    const handleRelativeLineNumberChange = (event: SelectChangeEvent) => {
+        const value = event.target.value;
+        const relativeLineNumber = value === 'true';
+        const newPreference = updatePreferenceState('relativeLineNumber', relativeLineNumber);
+        submit(newPreference);
+        dispatch(
+            updateAppState({
+                relativeLineNumber,
             }),
         );
     };
@@ -157,7 +169,7 @@ const PreferencePanel: FC = () => {
             }}
         >
             <Grid container spacing={'32px'} rowSpacing={'32px'} sx={{ width: '100%' }}>
-                <Grid item xs={12} sm={12} md={6} lg={3} xl={3}>
+                <Grid item xs={12} sm={12} md={6} lg={2} xl={2}>
                     <FormControl variant={'standard'} sx={{ m: 1, width: '100%' }}>
                         <InputLabel id={'language-select-label'}>{t('preferencePanel.label.language')}</InputLabel>
                         <Select
@@ -171,7 +183,7 @@ const PreferencePanel: FC = () => {
                         </Select>
                     </FormControl>
                 </Grid>
-                <Grid item xs={12} sm={12} md={6} lg={3} xl={3}>
+                <Grid item xs={12} sm={12} md={6} lg={2} xl={2}>
                     <FormControl variant={'standard'} sx={{ m: 1, width: '100%' }}>
                         <InputLabel id={'theme-label'}>{t('preferencePanel.label.themeId')}</InputLabel>
                         <Select
@@ -188,7 +200,7 @@ const PreferencePanel: FC = () => {
                         </Select>
                     </FormControl>
                 </Grid>
-                <Grid item xs={12} sm={12} md={6} lg={3} xl={3}>
+                <Grid item xs={12} sm={12} md={6} lg={2} xl={2}>
                     <FormControl variant={'standard'} sx={{ m: 1, width: '100%' }}>
                         <InputLabel id={'editor-mode-label'}>{t('preferencePanel.label.editorMode')}</InputLabel>
                         <Select
@@ -209,7 +221,7 @@ const PreferencePanel: FC = () => {
                         </Select>
                     </FormControl>
                 </Grid>
-                <Grid item xs={12} sm={12} md={6} lg={3} xl={3}>
+                <Grid item xs={12} sm={12} md={6} lg={2} xl={2}>
                     <FormControl variant={'standard'} sx={{ m: 1, width: '100%' }}>
                         <InputLabel id={'vim-mode-label'}>{t('preferencePanel.label.vimMode')}</InputLabel>
                         <Select
@@ -217,6 +229,22 @@ const PreferencePanel: FC = () => {
                             id={'vim-mode'}
                             value={preference.vimMode.toString()}
                             onChange={handleVimModeChange}
+                        >
+                            <MenuItem value={'true'}>{t('preferencePanel.values.vimMode.yes')}</MenuItem>
+                            <MenuItem value={'false'}>{t('preferencePanel.values.vimMode.no')}</MenuItem>
+                        </Select>
+                    </FormControl>
+                </Grid>
+                <Grid item xs={12} sm={12} md={6} lg={2} xl={2}>
+                    <FormControl variant={'standard'} sx={{ m: 1, width: '100%' }}>
+                        <InputLabel id={'relative-line-number-label'}>
+                            {t('preferencePanel.label.relativeLineNumber')}
+                        </InputLabel>
+                        <Select
+                            labelId={'relative-line-number-label'}
+                            id={'relative-line-number'}
+                            value={preference.relativeLineNumber.toString()}
+                            onChange={handleRelativeLineNumberChange}
                         >
                             <MenuItem value={'true'}>{t('preferencePanel.values.vimMode.yes')}</MenuItem>
                             <MenuItem value={'false'}>{t('preferencePanel.values.vimMode.no')}</MenuItem>

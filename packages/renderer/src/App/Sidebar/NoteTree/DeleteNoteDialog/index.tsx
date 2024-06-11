@@ -3,10 +3,10 @@ import { NoteVo } from '@clamcurry/common';
 import { useTranslation } from 'react-i18next';
 import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, Typography, useTheme } from '@mui/material';
 import BackspaceIcon from '@mui/icons-material/Backspace';
-import PromiseUtils from '../../../../utils/PromiseUtils';
-import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
-import { updateNotebookState } from '../../../../store/slices/NotebooksSlice';
-import { PanelTypeEnum, updatePanelsState } from '../../../../store/slices/PanelsSlice';
+import PromiseUtils from '@/utils/PromiseUtils';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { updateNotebookState } from '@/store/slices/NotebooksSlice';
+import { PanelTypeEnum, updatePanelsState } from '@/store/slices/PanelsSlice';
 
 export interface IDeleteNoteDialog {
     open: () => void;

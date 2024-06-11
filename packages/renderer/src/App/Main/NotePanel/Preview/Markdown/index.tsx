@@ -3,11 +3,10 @@ import ReactMarkdown from 'react-markdown';
 import { Root } from 'mdast';
 import remarkGfm from 'remark-gfm';
 import remarkBreaks from 'remark-breaks';
-import Code from './Code';
-import A from './A';
-import { Box } from '@mui/material';
-import Img from './Img';
-import Pre from './Pre';
+import Code from '@/App/Main/NotePanel/Preview/Markdown/Code';
+import A from '@/App/Main/NotePanel/Preview/Markdown/A';
+import Img from '@/App/Main/NotePanel/Preview/Markdown/Img';
+import Pre from '@/App/Main/NotePanel/Preview/Markdown/Pre';
 
 export interface IMarkdown {
     calcScrollOptions: (line: number) => [number, number];
@@ -62,11 +61,6 @@ const Markdown: ForwardRefRenderFunction<IMarkdown, IProps> = (props: IProps, re
             >
                 {content}
             </ReactMarkdown>
-            <Box
-                sx={{
-                    height: 'calc(100vh - 5rem)',
-                }}
-            />
         </>
     );
 };

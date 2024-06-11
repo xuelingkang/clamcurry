@@ -8,6 +8,7 @@ export interface AppState {
     fontSize: number;
     tabSize: number;
     vimMode: boolean;
+    relativeLineNumber: boolean;
     searchNoteLimit: number;
 }
 
@@ -36,6 +37,9 @@ export const appSlice = createSlice({
             }
             if (payload.vimMode !== undefined) {
                 state.vimMode = payload.vimMode;
+            }
+            if (payload.relativeLineNumber !== undefined) {
+                state.relativeLineNumber = payload.relativeLineNumber;
             }
             if (payload.searchNoteLimit !== undefined) {
                 state.searchNoteLimit = payload.searchNoteLimit;

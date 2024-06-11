@@ -3,7 +3,7 @@ import { ThemeVo } from '@clamcurry/common';
 import { useTranslation } from 'react-i18next';
 import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, Typography } from '@mui/material';
 import BackspaceIcon from '@mui/icons-material/Backspace';
-import PromiseUtils from '../../../../utils/PromiseUtils';
+import PromiseUtils from '@/utils/PromiseUtils';
 
 export interface IDeleteThemeDialog {
     open: () => void;

@@ -10,6 +10,7 @@ export default class UpdatePreferenceDto {
     fontSize: number;
     tabSize: number;
     vimMode: boolean;
+    relativeLineNumber: boolean;
     searchNoteLimit: number;
     themeId: number;
 }

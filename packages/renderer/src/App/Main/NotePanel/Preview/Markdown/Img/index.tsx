@@ -1,7 +1,7 @@
 import React, { FC, useContext, useRef, useState } from 'react';
 import { ExtraProps } from 'react-markdown';
-import ImageViewer, { IImageViewer } from '../../../../../../components/ImageViewer';
-import { ThemeContext } from '../../../../../../components/ThemeProvider';
+import ImageViewer, { IImageViewer } from '@/components/ImageViewer';
+import { ThemeContext } from '@/components/ThemeProvider';
 
 type IProps = React.ClassAttributes<HTMLImageElement> & React.ImgHTMLAttributes<HTMLImageElement> & ExtraProps;
 

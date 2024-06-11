@@ -1,6 +1,6 @@
 import React, { CSSProperties, FC, ReactNode, useEffect } from 'react';
 import { useDrop } from 'react-dnd';
-import { DndType, IDndTreeItem } from '../index';
+import { DndType, IDndTreeItem } from '@/components/DndTree';
 
 interface IProps {
     children?: ReactNode;

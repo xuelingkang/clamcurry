@@ -1,5 +1,5 @@
 import 'i18next';
-import resources from '../i18n/resources';
+import resources from '@/i18n/resources';
 
 declare module 'i18next' {
     interface CustomTypeOptions {

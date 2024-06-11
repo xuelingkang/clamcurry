@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { ExtraProps } from 'react-markdown';
-import Code from '../Code';
-import If from '../../../../../../components/If';
+import Code from '@/App/Main/NotePanel/Preview/Markdown/Code';
+import If from '@/components/If';
 
 type IProps = React.ClassAttributes<HTMLPreElement> & React.HTMLAttributes<HTMLPreElement> & ExtraProps;
 type IChildrenProps = React.ClassAttributes<HTMLElement> &
